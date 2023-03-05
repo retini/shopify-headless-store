@@ -4,7 +4,6 @@ function Search({onClose, isOpen, children}) {
       <button className="searchClose" onClick={onClose}>
         <span className="material-symbols-rounded">close</span>
       </button>
-      test
       {children}
     </div>
   );

@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {json} from 'react-router';
 import {useLoaderData} from '@remix-run/react';
-import {PRODUCT_QUERY} from '~/queries/product';
+import {PRODUCT_QUERY} from '~/queries/productQuery';
 import ProductGallery from '../components/ProductGallery';
 import FloatingButton from '~/components/FloatingButton';
 import Search from '~/components/Search';
@@ -43,7 +43,7 @@ function Product() {
           searchClient={searchClient}
           indexName="shopify-headless-store"
         >
-          <SearchBox />
+          <SearchBox placeholder="Sedia da ufficio" />
           <Hits hitComponent={Hit} />
         </InstantSearch>
       </Search>

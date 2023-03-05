@@ -1,8 +1,22 @@
 :root {
   --bg-primary: #e9e8e2;
   --bg-secondary: #1f2336;
-  --text-primary: #222222;
+  --bg-white: #ffffff;
+  --text-primary: #333333;
   --text-onaccent: #ffffff;
+}
+
+@font-face {
+  font-family: 'Futura';
+  src: url('../../public/futura_medium_bt-webfont.woff2') format('woff2'),
+    url('../../public/futura_medium_bt-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.heading {
+  font-family: 'Futura', sans-serif;
+  font-weight: 400;
 }
 
 .material-symbols-rounded {
@@ -13,6 +27,7 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  color: #333;
 }
 
 html {
@@ -63,31 +78,68 @@ body {
   margin: 0;
 }
 
+body {
+  padding-top: 20px;
+}
+
+/* Model viewer */
+
 model-viewer {
   max-width: 100%;
   height: 350px !important;
+  padding-top: 60px;
+  margin: 0 auto 20px auto !important;
+  overflow: visible;
 }
+
+model-viewer::part(default-ar-button) {
+  bottom: unset;
+  top: -60px;
+  right: unset;
+  left: 50%;
+  transform: translate(-50%);
+  width: 200px;
+  height: 45px;
+  gap: 10px;
+  border-radius: 5px;
+  padding-right: 11px;
+  font-weight: 600;
+  padding-bottom: 1px;
+}
+
+model-viewer::part(default-ar-button)::after {
+  font-family: 'Futura';
+  content: 'Vedi in AR';
+  font-weight: 400;
+}
+
+/* Search */
 
 .floatingButton {
   position: fixed;
   bottom: 25px;
   right: 25px;
   font-size: 0;
-  width: 50px;
-  height: 50px;
-  color: var(--text-onaccent);
+  width: 60px;
+  height: 60px;
   background-color: var(--bg-secondary);
   border-radius: 100%;
+  border: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
 
+.floatingButton > span {
+  font-size: 30px;
+  color: var(--text-onaccent);
+}
+
 .search {
-  background: var(--bg-secondary);
-  border: 0;
-  position: absolute;
+  background: var(--bg-white);
+  position: fixed;
+  overflow: auto;
   top: 0;
   left: 0;
   width: 100%;
@@ -95,6 +147,8 @@ model-viewer {
   clip-path: circle(0% at 0 100%);
   transition: clip-path 500ms;
   will-change: clip-path;
+  z-index: 10;
+  padding: 10px 35px 35px 35px;
 }
 
 .search.open {
@@ -103,7 +157,6 @@ model-viewer {
 
 .search .searchClose {
   background-color: transparent;
-  color: var(--text-onaccent);
   position: absolute;
   right: 30px;
   top: -50px;
@@ -119,4 +172,72 @@ model-viewer {
 
 .search.open .searchClose {
   top: 15px;
+}
+
+.search .ais-SearchBox {
+  margin-bottom: 40px;
+}
+
+.search .ais-SearchBox .ais-SearchBox-input {
+  width: 80%;
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid var(--text-primary);
+  padding: 15px 0 7px 0;
+  font-size: 21px;
+  font-family: 'Futura';
+}
+
+.search .ais-SearchBox .ais-SearchBox-submit {
+  display: none;
+}
+
+.search .ais-SearchBox .ais-SearchBox-reset {
+  display: none;
+}
+
+.search .ais-Hits-list {
+  padding: 0;
+}
+
+.search .ais-Hits-item {
+  margin-bottom: 20px;
+}
+
+.search .ais-Hits-item:last-child {
+  margin-bottom: 0;
+}
+
+.search .ais-Hits-item::marker {
+  font-size: 0;
+}
+
+.search .ais-Hits-item article {
+  display: grid;
+  grid-template-areas:
+    'image title'
+    'image price';
+  grid-template-columns: max-content 1fr;
+  column-gap: 10px;
+}
+
+.search .ais-Hits-item article img {
+  grid-area: image;
+  max-width: 80px;
+}
+
+.search .ais-Hits-item article .title {
+  grid-area: title;
+  font-size: 21px;
+}
+
+.search .ais-Hits-item article .price {
+  grid-area: price;
+}
+
+/* Product */
+
+.product > .title {
+  text-align: center;
+  font-size: 28px;
 }

@@ -2,9 +2,9 @@ function Hit({hit}) {
   console.log(hit);
   return (
     <article>
-      <img src={hit.image} alt={hit.name} />
-      <h1>{hit['Title']}</h1>
-      <p>${hit['Variant Price']}</p>
+      <img src={hit['Image Src']} alt={hit['Image Alt Text']} />
+      <h1 className="title heading">{hit['Title']}</h1>
+      <p className="price">${hit['Variant Price']}</p>
     </article>
   );
 }
