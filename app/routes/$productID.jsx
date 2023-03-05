@@ -1,7 +1,10 @@
+import {useState} from 'react';
 import {json} from 'react-router';
 import {useLoaderData} from '@remix-run/react';
 import {PRODUCT_QUERY} from '~/queries/product';
 import ProductGallery from '../components/ProductGallery';
+import FloatingButton from '~/components/FloatingButton';
+import Search from '~/components/Search';
 
 async function loader({request, context, params}) {
   let {productID} = params;
@@ -17,14 +20,23 @@ async function loader({request, context, params}) {
 }
 
 function Product() {
+  let [isSearchOpen, setIsSearchOpen] = useState(false);
+
   let {product} = useLoaderData();
   if (product == null) {
     return <div className="notFound">notFound</div>;
   }
   return (
     <div className="product">
-      This is the product with name {product.handle}{' '}
+      This is the product with name {product.handle}
       <ProductGallery media={product.media.nodes} />
+      <FloatingButton onClick={() => setIsSearchOpen(!isSearchOpen)}>
+        <span className="material-symbols-rounded">search</span>
+      </FloatingButton>
+      <Search
+        onClose={() => setIsSearchOpen(false)}
+        isOpen={isSearchOpen}
+      ></Search>
     </div>
   );
 }
