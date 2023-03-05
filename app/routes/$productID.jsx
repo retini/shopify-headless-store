@@ -1,5 +1,6 @@
 import {json} from 'react-router';
 import {useLoaderData} from '@remix-run/react';
+import {PRODUCT_QUERY} from '~/queries/product';
 import ProductGallery from '../components/ProductGallery';
 
 async function loader({request, context, params}) {
