@@ -5,7 +5,7 @@ const PRODUCT_QUERY = `#graphql
       title
       handle
       vendor
-      descriptionHtml
+      description
       media(first: 10) {
         nodes {
           ... on MediaImage {

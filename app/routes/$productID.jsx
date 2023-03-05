@@ -38,12 +38,13 @@ function Product() {
     <div className="product">
       <ProductGallery media={product.media.nodes} />
       <div className="title heading">{product.title}</div>
+      <div className="description">{product.description}</div>
       <Search onClose={() => setIsSearchOpen(false)} isOpen={isSearchOpen}>
         <InstantSearch
           searchClient={searchClient}
           indexName="shopify-headless-store"
         >
-          <SearchBox placeholder="Sedia da ufficio" />
+          <SearchBox placeholder={`"Sedia da gaming"`} />
           <Hits hitComponent={Hit} />
         </InstantSearch>
       </Search>
