@@ -1,11 +1,17 @@
 const PRODUCT_QUERY = `#graphql
-  query product($productID: ID) {
-    product(id: $productID) {
+  query product($productHandle: String!) {
+    product(handle: $productHandle) {
       id
       title
       handle
       vendor
       description
+      priceRange {
+        minVariantPrice {
+          amount
+          currencyCode
+        }
+      }
       media(first: 10) {
         nodes {
           ... on MediaImage {

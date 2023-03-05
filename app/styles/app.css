@@ -3,6 +3,7 @@
   --bg-secondary: #dcf2ff;
   --color-accent: #06b6d4;
   --color-button: #ffffff;
+  --color-shadow: #000c0e2b;
   --text-primary: #333333;
   --text-onaccent: #ffffff;
 }
@@ -122,7 +123,7 @@ model-viewer::part(default-ar-button) {
   font-weight: 600;
   padding-bottom: 1px;
   background-color: var(--color-button);
-  box-shadow: 0px 1px 4px 1px #000c0e2b;
+  box-shadow: 0px 1px 4px 1px var(--color-shadow);
 }
 
 model-viewer::part(default-ar-button)::after {
@@ -147,7 +148,7 @@ model-viewer::part(default-ar-button)::after {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0px 1px 4px 1px #000c0e2b;
+  box-shadow: 0px 1px 4px 1px var(--color-shadow);
 }
 
 .floatingButton > span {
@@ -167,7 +168,7 @@ model-viewer::part(default-ar-button)::after {
   transition: clip-path 500ms;
   will-change: clip-path;
   z-index: 10;
-  padding: 10px 35px 35px 35px;
+  padding: 25px 30px 35px;
 }
 
 .search.open {
@@ -195,6 +196,13 @@ model-viewer::part(default-ar-button)::after {
 
 .search .ais-SearchBox {
   margin-bottom: 40px;
+  opacity: 0;
+  transition: opacity 500ms;
+  transition-delay: 500ms;
+}
+
+.search.open .ais-SearchBox {
+  opacity: 1;
 }
 
 .search .ais-SearchBox .ais-SearchBox-form {
@@ -219,23 +227,30 @@ model-viewer::part(default-ar-button)::after {
   display: none;
 }
 
-.search .ais-Hits-list {
-  padding: 0;
+.search .hits {
+  opacity: 0;
+  transition: opacity 500ms;
+  transition-delay: 500ms;
 }
 
-.search .ais-Hits-item {
+.search.open .hits {
+  opacity: 1;
+}
+
+.search .hit {
   margin-bottom: 20px;
+  position: relative;
 }
 
-.search .ais-Hits-item:last-child {
+.search .hit:last-child {
   margin-bottom: 0;
 }
 
-.search .ais-Hits-item::marker {
+.search .hit::marker {
   font-size: 0;
 }
 
-.search .ais-Hits-item article {
+.search .hit {
   display: grid;
   grid-template-areas:
     'image title'
@@ -244,18 +259,26 @@ model-viewer::part(default-ar-button)::after {
   column-gap: 10px;
 }
 
-.search .ais-Hits-item article img {
+.search .hit img {
   grid-area: image;
   max-width: 80px;
 }
 
-.search .ais-Hits-item article .title {
+.search .hit .title {
   grid-area: title;
   font-size: 21px;
 }
 
-.search .ais-Hits-item article .price {
+.search .hit .price {
   grid-area: price;
+}
+
+.search .hit a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* Product */
@@ -267,4 +290,9 @@ model-viewer::part(default-ar-button)::after {
 
 .product > .description {
   padding: 10px 30px;
+}
+
+.product > .price {
+  text-align: center;
+  font-size: 21px;
 }

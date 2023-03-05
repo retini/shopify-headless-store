@@ -6,8 +6,8 @@ import ProductGallery from '../components/ProductGallery';
 import FloatingButton from '~/components/FloatingButton';
 import Search from '~/components/Search';
 import algoliasearch from 'algoliasearch/dist/algoliasearch-lite.esm.browser';
-import {Hits, InstantSearch, SearchBox} from 'react-instantsearch-hooks-web';
-import Hit from '~/components/Hit';
+import {InstantSearch, SearchBox} from 'react-instantsearch-hooks-web';
+import Hits from '~/components/Hits';
 
 const searchClient = algoliasearch(
   'XS4ZQWA350',
@@ -15,10 +15,10 @@ const searchClient = algoliasearch(
 );
 
 async function loader({request, context, params}) {
-  let {productID} = params;
+  let {productHandle} = params;
   let {product} = await context.storefront.query(PRODUCT_QUERY, {
     variables: {
-      productID: `gid:\/\/shopify\/Product\/${productID}`,
+      productHandle: productHandle,
     },
   });
 
@@ -34,10 +34,12 @@ function Product() {
   if (product == null) {
     return <div className="notFound">notFound</div>;
   }
+
   return (
     <div className="product">
       <ProductGallery media={product.media.nodes} />
       <div className="title heading">{product.title}</div>
+      <div className="price">€{product.priceRange.minVariantPrice.amount}</div>
       <div className="description">{product.description}</div>
       <Search onClose={() => setIsSearchOpen(false)} isOpen={isSearchOpen}>
         <InstantSearch
@@ -45,7 +47,7 @@ function Product() {
           indexName="shopify-headless-store"
         >
           <SearchBox placeholder={`"Sedia da gaming"`} />
-          <Hits hitComponent={Hit} />
+          <Hits onClick={() => setIsSearchOpen(false)} />
         </InstantSearch>
       </Search>
       <FloatingButton onClick={() => setIsSearchOpen(!isSearchOpen)}>
