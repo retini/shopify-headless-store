@@ -64,7 +64,8 @@ body {
 }
 
 model-viewer {
-  height: 200px !important;
+  max-width: 100%;
+  height: 350px !important;
 }
 
 .floatingButton {

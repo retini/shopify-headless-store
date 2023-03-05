@@ -15,17 +15,17 @@ function ProductGallery({media}) {
   return (
     <div>
       {media.map((med, i) => {
-        let extraProps = {};
-
-        if (med.mediaContentType === 'MODEL_3D') {
-          extraProps = {
-            interactionPromptThreshold: '0',
-            ar: true,
-            loading: 'eager',
-            disableZoom: true,
-            style: {height: '100%', margin: '0 auto'},
-          };
+        if (med.mediaContentType !== 'MODEL_3D') {
+          return;
         }
+
+        let extraProps = {
+          interactionPromptThreshold: '0',
+          ar: true,
+          loading: 'eager',
+          disableZoom: true,
+          style: {height: '100%', margin: '0 auto'},
+        };
 
         const data = {
           ...med,
