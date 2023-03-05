@@ -1,9 +1,11 @@
-function Search({onClose, isOpen}) {
+function Search({onClose, isOpen, children}) {
   return (
     <div className={`search${isOpen ? ' open' : ''}`}>
       <button className="searchClose" onClick={onClose}>
-        <span class="material-symbols-rounded">close</span>
+        <span className="material-symbols-rounded">close</span>
       </button>
+      test
+      {children}
     </div>
   );
 }
