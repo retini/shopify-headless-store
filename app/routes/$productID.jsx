@@ -28,7 +28,7 @@ function Product() {
   }
   return (
     <div className="product">
-      This is the product with name {product.handle}
+      This is the product with title "{product.title}"
       <ProductGallery media={product.media.nodes} />
       <FloatingButton onClick={() => setIsSearchOpen(!isSearchOpen)}>
         <span className="material-symbols-rounded">search</span>
