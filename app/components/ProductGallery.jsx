@@ -37,7 +37,7 @@ function ProductGallery({media}) {
         };
 
         return (
-          <div key={data.id || data.image.id}>
+          <div key={data.id || data.image.id} className="viewerWrapper">
             <MediaFile tabIndex="0" data={data} {...extraProps} />
           </div>
         );

@@ -2,7 +2,7 @@
   --bg-primary: #ffffff;
   --bg-secondary: #c7d2fe;
   --color-accent: #4f46e5;
-  --color-button: #ffffff;
+  --color-button: #f2f2f2;
   --color-shadow: #000c0e2b;
   --text-primary: #333333;
   --text-onaccent: #ffffff;
@@ -37,7 +37,7 @@ html {
 body {
   margin: 0;
   font-family: 'Futura', sans-serif;
-  color: #333;
+  color: var(--text-primary);
 }
 
 img,
@@ -77,7 +77,7 @@ p {
 
 html,
 body {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   padding: 0;
   margin: 0;
 }
@@ -134,6 +134,12 @@ model-viewer::part(default-ar-button)::after {
   font-weight: 400;
 }
 
+.viewerWrapper {
+  height: 350px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
 /* Search */
 
 .floatingButton {
@@ -143,7 +149,7 @@ model-viewer::part(default-ar-button)::after {
   font-size: 0;
   width: 60px;
   height: 60px;
-  background-color: var(--color-button);
+  background-color: var(--color-accent);
   border-radius: 100%;
   border: 0;
   display: flex;
@@ -155,7 +161,7 @@ model-viewer::part(default-ar-button)::after {
 
 .floatingButton > span {
   font-size: 30px;
-  color: var(--text-primary);
+  color: var(--text-onaccent);
 }
 
 .search {
@@ -218,6 +224,7 @@ model-viewer::part(default-ar-button)::after {
   border-bottom: 1px solid var(--text-primary);
   padding: 15px 0 7px 0;
   font-size: 21px;
+  font-family: 'Futura';
 }
 
 .search .ais-SearchBox .ais-SearchBox-submit {
@@ -271,6 +278,7 @@ model-viewer::part(default-ar-button)::after {
 }
 
 .search .hit .price {
+  opacity: 0.7;
   grid-area: price;
 }
 
@@ -338,9 +346,12 @@ model-viewer::part(default-ar-button)::after {
 
 .product > .description {
   padding: 10px 30px;
+  font-size: 14px;
+  text-align: center;
 }
 
 .product > .price {
+  margin-top: 10px;
   text-align: center;
   font-size: 21px;
 }
