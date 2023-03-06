@@ -17,7 +17,7 @@ function Index() {
           native to Shopify.
         </p>
       </div>
-      <Link to={`/chaise-lounge`} className="btn seeDemo">
+      <Link to={`/devergo`} className="btn seeDemo">
         <span class="material-symbols-rounded">explore</span>
         <span>Dive in</span>
       </Link>
