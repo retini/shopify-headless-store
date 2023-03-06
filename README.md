@@ -1,21 +1,16 @@
-# Hydrogen template: Hello World
+# Shopify Headless Store
 
-Hydrogen is Shopify’s stack for headless commerce. Hydrogen is designed to dovetail with [Remix](https://remix.run/), Shopify’s full stack web framework. This template contains a **minimal setup** of components, queries and tooling to get started with Hydrogen.
+This is a little demo of a SPA based on the Shopify Headless Stack (Hydrogen + Oxygen + GraphQL + Storefront API).
+
+The search functionality is based on Algolia and for this reason it can index the descriptions and attributes of the products.
+
+The augmented reality capabilities and 3D model visualization are native to Shopify.
+
+## Documentation
 
 [Check out Hydrogen docs](https://shopify.dev/custom-storefronts/hydrogen)
-[Get familiar with Remix](https://remix.run/docs/en/v1)
 
-## What's included
-
-- Remix
-- Hydrogen
-- Oxygen
-- Shopify CLI
-- ESLint
-- Prettier
-- GraphQL generator
-- TypeScript and JavaScript flavors
-- Minimal setup of components and routes
+[Read the Algolia documentation](https://www.algolia.com/doc/)
 
 ## Getting started
 
@@ -24,18 +19,13 @@ Hydrogen is Shopify’s stack for headless commerce. Hydrogen is designed to dov
 - Node.js version 16.14.0 or higher
 
 ```bash
-npm create @shopify/hydrogen@latest --template hello-world
+git clone https://github.com/retini/shopify-headless-store.git
+npm install
 ```
 
-Remember to update `.env` with your shop's domain and Storefront API token!
+Add the `.env` file (check Hydrogen docs) in the root directory. Update the `.env` file with your shop's domain and Storefront API token.
 
-## Building for production
-
-```bash
-npm run build
-```
-
-## Local development
+Import your shop's products into Algolia and update the application key, the API key and `indexName` prop in the route `$productHandle.jsx`.
 
 ```bash
 npm run dev
