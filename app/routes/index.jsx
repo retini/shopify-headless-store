@@ -6,14 +6,14 @@ function Index() {
       <div className="text">
         <p>
           This is a little demo of a SPA based on the Shopify Headless Stack
-          (Hydrogen + Oxygen + GraphQL + Storefront API)
+          (Hydrogen + Oxygen + GraphQL + Storefront API).
         </p>
         <p>
           The search functionality is based on Algolia and for this reason it
           can index the descriptions and attributes of the products.
         </p>
         <p>
-          The augmented reality capabilities and 3D model visualization is
+          The augmented reality capabilities and 3D model visualization are
           native to Shopify.
         </p>
       </div>
