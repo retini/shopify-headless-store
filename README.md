@@ -6,6 +6,8 @@ The search functionality is based on Algolia and for this reason it can index th
 
 The augmented reality capabilities and 3D model visualization are native to Shopify.
 
+[See the demo hosted with Oxygen](https://shopify-headless-store-3daf33e06d10d255800a.o2.myshopify.dev) (note that this is a mobile-first demo and support for desktop visualization might be weak)
+
 ## Documentation
 
 [Check out Hydrogen docs](https://shopify.dev/custom-storefronts/hydrogen)
