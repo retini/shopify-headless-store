@@ -38,6 +38,7 @@ body {
   margin: 0;
   font-family: 'Futura', sans-serif;
   color: var(--text-primary);
+  overflow: hidden;
 }
 
 img,
