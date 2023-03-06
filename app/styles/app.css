@@ -182,6 +182,7 @@ model-viewer::part(default-ar-button)::after {
   height: 100%;
   clip-path: circle(0% at 0 100%);
   transition: clip-path 500ms;
+  will-change: clip-path;
   z-index: 10;
   padding: 25px 30px 35px;
 }
