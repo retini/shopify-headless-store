@@ -83,7 +83,7 @@ body {
 }
 
 body {
-  padding-top: 10px;
+  padding-top: 40px;
 }
 
 .logo {
@@ -156,7 +156,7 @@ model-viewer::part(default-ar-button)::after {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0px 1px 4px 1px var(--color-shadow);
+  box-shadow: 0 1px 11px 2px #2a257ec9;
 }
 
 .floatingButton > span {
@@ -354,4 +354,5 @@ model-viewer::part(default-ar-button)::after {
   margin-top: 10px;
   text-align: center;
   font-size: 21px;
+  color: var(--color-accent);
 }

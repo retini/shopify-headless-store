@@ -46,7 +46,7 @@ function Product() {
           searchClient={searchClient}
           indexName="shopify-headless-store"
         >
-          <SearchBox placeholder={`"Sedia da gaming"`} />
+          <SearchBox placeholder={`"con ruote", "metallo"`} />
           <Hits onClick={() => setIsSearchOpen(false)} />
         </InstantSearch>
       </Search>

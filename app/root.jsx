@@ -34,7 +34,7 @@ export default function App() {
     <html lang="en">
       <head>
         <Meta />
-        <meta name="theme-color" content="#06b6d4" />
+        <meta name="theme-color" content="#4f46e5" />
         <Links />
         <link
           rel="stylesheet"
