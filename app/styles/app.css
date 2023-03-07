@@ -181,7 +181,7 @@ model-viewer::part(default-ar-button)::after {
   width: 100%;
   height: 100%;
   clip-path: circle(0% at 0 100%);
-  transition: clip-path 500ms;
+  transition: clip-path 500ms 0ms, visibility 0ms 500ms, opacity 0ms 500ms;
   will-change: clip-path;
   visibility: hidden;
   opacity: 0;
@@ -190,6 +190,7 @@ model-viewer::part(default-ar-button)::after {
 }
 
 .search.open {
+  transition: clip-path 500ms;
   clip-path: circle(141.4% at 0 100%);
   visibility: visible;
   opacity: 1;
